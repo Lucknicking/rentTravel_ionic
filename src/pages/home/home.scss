@@ -4,3 +4,45 @@ page-home {
 .homeslides{
     height: 35%;
 }
+.home_content .row {
+  height: 75px;
+}
+.home_row .col{
+  position: relative;
+  text-align: center;
+}
+.home_row .home_row_ico{
+  color: #FF8247;
+  font-size: 50px
+}
+.color_for_bg{
+  width: 100%;
+  height: 10px;
+  background-color: #ececec;
+}
+.home_content{
+  width: 100%;
+}
+.home_content .col1{
+  border-right: 1px solid #dedede;
+  border-bottom: 1px solid #dedede;
+}
+.home_content .col2{
+  border-bottom: 1px solid #dedede;
+}
+.home_content .col3{
+  border-right: 1px solid #dedede;
+}
+.slide-box_self{
+  margin-top: 10px;
+  display: -webkit-box;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling:touch;
+}
+.slide-item_self{
+  width: 200px;
+  height: 200px;
+  border:1px solid #ccc;
+  margin-right: 30px;
+}
+

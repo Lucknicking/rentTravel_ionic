@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { HttpClient } from "@angular/common/http";
-import { AppConfig } from "../../app/app.config";
 import { TabsPage } from "../tabs/tabs";
 
 /**
@@ -18,13 +17,17 @@ import { TabsPage } from "../tabs/tabs";
 })
 export class LoginPage {
 
-  constructor(private http: HttpClient, public navCtrl: NavController,public toastCtrl: ToastController,public navParams: NavParams) {
+  constructor(private http: HttpClient,
+              public navCtrl: NavController,
+              public toastCtrl: ToastController,
+              public navParams: NavParams,
+              private loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
-  
+
   logIn(username: HTMLInputElement, password: HTMLInputElement) {
     if (username.value.length == 0) {
     	this.showToast("bottom", "请输入账号");
@@ -41,9 +44,17 @@ export class LoginPage {
   	}
   }
   next() {
-    this.navCtrl.push(TabsPage);
+    let loading = this.loadingCtrl.create({
+      content: '正在登录...',
+      duration: 3000, //单位是毫秒
+    });
+    loading.present();
+    setTimeout(() => {
+      loading.dismiss();
+      this.navCtrl.push(TabsPage);
+    }, 10);
   }
-  
+
   showToast(position: string, message: string) {
     let toast = this.toastCtrl.create({
       message: message,

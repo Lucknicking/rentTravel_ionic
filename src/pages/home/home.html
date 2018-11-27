@@ -2,13 +2,12 @@
   <ion-navbar>
     <ion-title>首页</ion-title>
   </ion-navbar>
+  <ion-toolbar color="primary">
+    <ion-searchbar (input)="getItems($event)"></ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <ion-label floating>Password</ion-label>
-    <ion-input type="password"></ion-input>
-  </ion-item>
   <ion-slides #slides loop="true" pager autoplay="2000" class="homeslides">
   	<ion-slide>
     	<img src="../../assets/imgs/user_tab_bg.png"/>
@@ -20,4 +19,79 @@
     	<img src="../../assets/imgs/user_tab_bg.png"/>
   	</ion-slide>
 	</ion-slides>
+  <div class="row home_row">
+    <div class="col">
+      <div>
+        <ion-icon class="home_row_ico" name="heart"></ion-icon>
+      </div>
+      <div>
+        <span class="home_row_span">精选</span>
+      </div>
+    </div>
+    <div class="col">
+      <div>
+        <ion-icon class="home_row_ico" name="heart"></ion-icon>
+      </div>
+      <div>
+        <span class="home_row_span">精选</span>
+      </div>
+    </div>
+    <div class="col">
+      <div>
+        <ion-icon class="home_row_ico" name="heart"></ion-icon>
+      </div>
+      <div>
+        <span class="home_row_span">精选</span>
+      </div>
+    </div>
+    <div class="col">
+      <div>
+        <ion-icon class="home_row_ico" name="heart"></ion-icon>
+      </div>
+      <div>
+        <span>精选</span>
+      </div>
+    </div>
+    <div class="col">
+      <div>
+        <ion-icon class="home_row_ico" name="heart"></ion-icon>
+      </div>
+      <div>
+        <span class="home_row_span">精选</span>
+      </div>
+    </div>
+  </div>
+  <div class="color_for_bg"></div>
+  <div class="home_content">
+    <div class="row">
+      <div class="col col1">
+        aa
+      </div>
+      <div class="col col2">
+        bb
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col3">
+        cc
+      </div>
+      <div class="col">
+        dd
+      </div>
+    </div>
+  </div>
+  <div style="text-align: center">
+    <h5>限时优惠</h5>
+    <span>冰点直降</span>
+    <div class="slide-box_self">
+      <div class="slide-item_self"></div>
+      <div class="slide-item_self"></div>
+      <div class="slide-item_self"></div>
+      <div class="slide-item_self"></div>
+      <div class="slide-item_self"></div>
+    </div>
+  </div>
+  <div style="text-align: center">
+    this is end
+  </div>
 </ion-content>

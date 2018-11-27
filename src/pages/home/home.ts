@@ -8,7 +8,6 @@ import { NavController,Slides } from 'ionic-angular';
 export class HomePage {
 
   constructor(public navCtrl: NavController) {
-
   }
   @ViewChild('slides') slides: Slides;
       //页面进入时启动自动播放
@@ -21,8 +20,12 @@ export class HomePage {
     //页面离开时停止自动播放
 
 
- ionViewDidLeave(){ 
+ ionViewDidLeave(){
     this.slides.stopAutoplay();
   }
 
+  getItems(ev: any) {
+    let searchText = ev.target.value;
+    console.log(searchText)
+  }
 }
