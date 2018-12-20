@@ -1,3 +1,83 @@
 page-about {
-
+  .head_bg{
+    height: 130px;
+    width: 100%;
+    background-color: #FF857B;
+  }
+  .head_bg h3{
+    width: 30%;
+    left: 50%;
+    margin-left: -15%;
+    text-align: center;
+    position: absolute;
+    color: #fff;
+  }
+  .login_card{
+    position: relative;
+    width: 94%;
+    margin-left: 3%;
+    margin-top: -50px;
+    height: 144px;
+    background-color: #fff;
+    border-radius: 7px;
+  }
+  .login_card img{
+    position: absolute;
+    border-radius: 100px;
+    margin-left: 7%;
+    margin-top: -5%;
+    width: 24%;
+  }
+  .login_intent{
+    position: absolute;
+    width: 50%;
+    margin-left: 37%;
+  }
+  .login_intent h3{
+    color: 	#FF4500;
+  }
+  .login_intent span{
+    color: 	#ADADAD;
+  }
+  .login_li{
+    position: absolute;
+    margin-top: 74px;
+    width: 100%;
+    left: 50%;
+    margin-left: -50%;
+  }
+  ion-col div {
+    padding: 5px;
+    color: #ADADAD;
+    text-align: center;
+  }
+  .money{
+    color: #FF4500;
+    display: block;
+    width: 100%;
+    font-size: 21px;
+  }
+  .login_li ion-col{
+    height: 51px;
+    border-right: 1px solid #ADADAD;
+  }
+  .login_bottom{
+    width: 100%;
+    background-color: #FF857B;
+    position: absolute;
+    bottom: 0px;
+    height: 8px;
+    border-bottom-right-radius:7px;
+    border-bottom-left-radius:7px;
+  }
+  .my_content{
+    width: 100%;
+    height: 200px;
+    margin-top: 20px;
+    position: relative;
+    background-color: #fff;
+  }
+  .my_content span{
+    color: #ADADAD;
+  }
 }
