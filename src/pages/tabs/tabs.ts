@@ -19,14 +19,14 @@ export class TabsPage {
         tabIcon: 'home'
       },
       {
-        root: ActivityPage,
-        tabTitle: '活动',
-        tabIcon: 'information'
-      },
-      {
         root: ContactPage,
         tabTitle: '探索',
         tabIcon: 'eye'
+      },
+      {
+        root: ActivityPage,
+        tabTitle: '购物车',
+        tabIcon: 'information'
       },
       {
         root: AboutPage,

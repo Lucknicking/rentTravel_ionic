@@ -48,6 +48,48 @@
           <span>全部订单 ></span>
         </ion-col>
       </ion-row>
+      <ion-row class="order">
+        <ion-col>
+          <div>
+            <img src="../../assets/imgs/order05.png">
+            <span>待付款</span>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+            <img src="../../assets/imgs/order04.png">
+            <span>待分享</span>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+            <img src="../../assets/imgs/order02.png">
+            <span>待自提</span>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+            <img src="../../assets/imgs/order03.png">
+            <span>已完成</span>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+            <img src="../../assets/imgs/order01.png">
+            <span>退款中</span>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <button ion-item *ngFor="let item of items" (click)="openNavDetailsPage(item)" icon-start>
+              <ion-icon [name]="'logo-' + item.icon" [ngStyle]="{'color': item.color}" item-start></ion-icon>
+              {{ item.title }}
+            </button>
+          </ion-list>
+        </ion-col>
+      </ion-row>
     </ion-grid>
   </div>
 </ion-content>

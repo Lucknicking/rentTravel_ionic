@@ -1,3 +1,32 @@
 page-activity {
-
+  .slide-box_self{
+    height: 400px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .slide-item_self{
+    border-radius: 6px;
+    width: 300px;
+    height: 100%;
+    background-color: white;
+    font-size: 1.7rem;
+    font-family: inherit;
+    font-style: inherit;
+  }
+  .slide-item_self img{
+    border-radius: 6px;
+  }
+  .pay_div{
+    font-size: 1.7rem;
+  }
+  .pay_div ul{
+    list-style: none;
+    padding-left: 20px;
+    margin-top: -20px;
+  }
+  .pay_div li{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid grey;
+  }
 }
