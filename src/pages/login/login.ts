@@ -29,18 +29,29 @@ export class LoginPage {
   }
 
   logIn(username: HTMLInputElement, password: HTMLInputElement) {
+    let $this = this;
+    let loading = this.loadingCtrl.create({
+      content: '正在登录...'
+    });
     if (username.value.length == 0) {
     	this.showToast("bottom", "请输入账号");
     } else if (password.value.length == 0) {
         this.showToast("bottom", "请输入密码");
     } else {
-        let userinfo: string = '用户名：' + username.value + '密码：' + password.value;
-        alert(userinfo);
-        var data = {"userName": username.value,"password":password.value};
-        this.http.post("/api/login", data).subscribe(data => {
-        	console.log(data);
-        });
-	    this.navCtrl.push(TabsPage);
+        let data = {"userName": username.value,"password":password.value};
+        loading.present();
+        this.http.post("/api/login", data).toPromise()
+          .then((res:any) => {
+            loading.dismiss();
+            if (res && res.code === 0) {
+              $this.showToast("bottom", "登录成功");
+              this.navCtrl.push(TabsPage);
+            } else {
+              $this.showToast("top", res.msg)
+            }
+          }).catch(err => {
+            console.log(err)
+          });
   	}
   }
   next() {
@@ -61,7 +72,6 @@ export class LoginPage {
       duration: 2000,
       position: position
     });
-
     toast.present(toast);
   }
 }
