@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
+import { IonicPage, AlertController, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { HttpClient } from "@angular/common/http";
 import { TabsPage } from "../tabs/tabs";
 
@@ -21,6 +21,7 @@ export class LoginPage {
               public navCtrl: NavController,
               public toastCtrl: ToastController,
               public navParams: NavParams,
+              private alertCtrl: AlertController,
               private loadingCtrl: LoadingController) {
   }
 
@@ -49,7 +50,14 @@ export class LoginPage {
             } else {
               $this.showToast("top", res.msg)
             }
-          }).catch(err => {
+          }).catch((err: any) => {
+            let alert = this.alertCtrl.create({
+              title: '错误信息',
+              subTitle: err.message,
+              buttons: ['OK']
+            });
+            alert.present();
+            loading.dismiss();
             console.log(err)
           });
   	}
