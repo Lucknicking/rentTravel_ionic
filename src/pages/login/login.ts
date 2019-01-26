@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, AlertController, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
-import { HttpClient } from "@angular/common/http";
+import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { TabsPage } from "../tabs/tabs";
-
+import { HttpSerProvider } from "../../providers/http-ser/http-ser"
+import { RegisterPage } from "../register/register"
 /**
  * Generated class for the LoginPage page.
  *
@@ -17,11 +17,10 @@ import { TabsPage } from "../tabs/tabs";
 })
 export class LoginPage {
 
-  constructor(private http: HttpClient,
+  constructor(private http: HttpSerProvider,
               public navCtrl: NavController,
               public toastCtrl: ToastController,
               public navParams: NavParams,
-              private alertCtrl: AlertController,
               private loadingCtrl: LoadingController) {
   }
 
@@ -41,26 +40,23 @@ export class LoginPage {
     } else {
         let data = {"userName": username.value,"password":password.value};
         loading.present();
-        this.http.post("/api/login", data).toPromise()
-          .then((res:any) => {
+        this.http.post("api/login", data, function (res, msg) {
+          if (res.code === 0) {
             loading.dismiss();
-            if (res && res.code === 0) {
-              $this.showToast("bottom", "登录成功");
-              this.navCtrl.push(TabsPage);
-            } else {
-              $this.showToast("top", res.msg)
-            }
-          }).catch((err: any) => {
-            let alert = this.alertCtrl.create({
-              title: '错误信息',
-              subTitle: err.message,
-              buttons: ['OK']
-            });
-            alert.present();
+            $this.showToast("bottom", "登录成功");
+            $this.navCtrl.push(TabsPage);
+          } else {
+            $this.showToast("top", res.msg);
             loading.dismiss();
-            console.log(err)
-          });
+          }
+        }, function (msg) {
+          loading.dismiss();
+          $this.showToast("top", msg.message)
+        })
   	}
+  }
+  registUser() {
+    this.navCtrl.push(RegisterPage);
   }
   next() {
     let loading = this.loadingCtrl.create({

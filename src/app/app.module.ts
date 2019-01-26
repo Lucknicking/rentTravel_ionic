@@ -8,6 +8,7 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
 import { ActivityPage } from '../pages/activity/activity';
 import { FindPage } from '../pages/find/find';
@@ -15,6 +16,7 @@ import { TravelNewsPage } from '../pages/travel-news/travel-news';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { HttpSerProvider } from '../providers/http-ser/http-ser';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     ActivityPage,
     FindPage,
+    RegisterPage,
     TravelNewsPage
   ],
   imports: [
@@ -41,6 +44,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     TabsPage,
     LoginPage,
+    RegisterPage,
     ActivityPage,
     FindPage,
     TravelNewsPage
@@ -48,7 +52,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    HttpSerProvider,
+    HttpSerProvider
   ]
 })
 export class AppModule {}

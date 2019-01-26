@@ -1,13 +1,7 @@
 {
-  "name": "ionic3Demo",
+  "name": "New Ionic App",
   "integrations": {
     "cordova": {}
   },
-  "type": "ionic-angular",
-  "proxies": [
-    {
-      "path": "/api",
-      "proxyUrl":"http://139.199.62.61/api"
-    }
-  ]
+  "type": "ionic-angular"
 }
