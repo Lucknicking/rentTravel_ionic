@@ -26,7 +26,7 @@ export class TabsPage {
       {
         root: ActivityPage,
         tabTitle: '购物车',
-        tabIcon: 'information'
+        tabIcon: 'cart'
       },
       {
         root: AboutPage,
