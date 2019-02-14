@@ -21,17 +21,21 @@ export class TabsPage {
       {
         root: ContactPage,
         tabTitle: '探索',
-        tabIcon: 'eye'
+        tabIcon: 'eye',
+        tabBage: ''
       },
       {
         root: ActivityPage,
         tabTitle: '购物车',
+        tabBage: '5',
         tabIcon: 'cart'
       },
       {
         root: AboutPage,
         tabTitle: '我的',
-        tabIcon: 'person'
+        tabIcon: 'person',
+        tabBage: ''
+
       }
     ];
   }

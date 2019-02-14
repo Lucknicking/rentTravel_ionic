@@ -1,5 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
-import { NavController,Slides } from 'ionic-angular';
+import {Component, ViewChild} from '@angular/core';
+import {NavController, Slides} from 'ionic-angular';
+import { GoodsDetailPage } from "../goods/goodsDetail"
 
 @Component({
   selector: 'page-home',
@@ -9,23 +10,29 @@ export class HomePage {
 
   constructor(public navCtrl: NavController) {
   }
+
   @ViewChild('slides') slides: Slides;
-      //页面进入时启动自动播放
-    ionViewDidEnter(){
-    	this.slides.autoplayDisableOnInteraction = false;
-      this.slides.startAutoplay();
-    }
+
+  //页面进入时启动自动播放
+  ionViewDidEnter() {
+    this.slides.autoplayDisableOnInteraction = false;
+    this.slides.startAutoplay();
+  }
 
 
-    //页面离开时停止自动播放
+  //页面离开时停止自动播放
 
 
- ionViewDidLeave(){
+  ionViewDidLeave() {
     this.slides.stopAutoplay();
   }
 
   getItems(ev: any) {
     let searchText = ev.target.value;
     console.log(searchText)
+  }
+
+  detailInfo() {
+    this.navCtrl.push(GoodsDetailPage);
   }
 }

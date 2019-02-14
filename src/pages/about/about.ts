@@ -1,5 +1,16 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams  } from 'ionic-angular';
+
+@Component({
+  templateUrl: 'navigation-details.html',
+})
+export class NavigationDetailsPage {
+  item;
+
+  constructor(params: NavParams) {
+    this.item = params.data.item;
+  }
+}
 
 @Component({
   selector: 'page-about',
@@ -36,6 +47,6 @@ export class AboutPage {
     ]
   }
   openNavDetailsPage(item) {
-    console.log(1)
+    this.navCtrl.push(NavigationDetailsPage, { item: item });
   }
 }

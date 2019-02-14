@@ -1,14 +1,24 @@
 page-home {
+  .searchbar-input{
+    border-radius: 8px !important;
+    height: 40px !important;
+    background-color: rgba(255,255,255,0.2) !important;
+    box-shadow: 0 0 0 0 !important;
+    -webkit-box-shadow: 0 0 0 0 !important;
+  }
   .homeslides{
     height: 37%;
+  }
+  .home_row{
+    margin-top: 10px;
   }
   .home_row .col{
     position: relative;
     text-align: center;
   }
   .home_row .home_row_ico{
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
   }
   .home_content{
     width: 100%;
@@ -25,7 +35,8 @@ page-home {
   }
   .home_content .row img{
     width: 70%;
-    height: 80%;
+    height: 60%;
+    margin-top: 20%;
   }
   .home_content .root_col{
     background-color: #F2F2F2;
@@ -62,10 +73,12 @@ page-home {
   }
   .slide-item_self img{
     width: 200px;
+    border-radius: 6px;
     height: 130px;
   }
   .slide-item_self .car_text{
     padding-left: 10px;
+    position: relative;
   }
 }
 
