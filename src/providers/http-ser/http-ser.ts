@@ -13,8 +13,8 @@ export class HttpSerProvider {
     console.log('Hello HttpSerProvider Provider');
   }
 
-  apiUrl = 'http://139.199.62.61';
-  // apiUrl = 'http://localhost:8080';
+  // apiUrl = 'http://139.199.62.61';
+  apiUrl = 'http://localhost:8080';
 
   public post(url: string, params: any = null, successCallback, errorCallback): any {
     url = this.getUrl(url);

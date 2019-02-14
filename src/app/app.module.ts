@@ -13,6 +13,7 @@ import { LoginPage } from '../pages/login/login';
 import { ActivityPage } from '../pages/activity/activity';
 import { GoodsDetailPage } from '../pages/goods/goodsDetail';
 import { TravelNewsPage } from '../pages/travel-news/travel-news';
+import { UserSendMesPage } from "../pages/user-send-mes/user-send-mes";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -30,7 +31,8 @@ import { HttpSerProvider } from '../providers/http-ser/http-ser';
     ActivityPage,
     GoodsDetailPage,
     RegisterPage,
-    TravelNewsPage
+    TravelNewsPage,
+    UserSendMesPage
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,8 @@ import { HttpSerProvider } from '../providers/http-ser/http-ser';
     RegisterPage,
     ActivityPage,
     GoodsDetailPage,
-    TravelNewsPage
+    TravelNewsPage,
+    UserSendMesPage
   ],
   providers: [
     StatusBar,

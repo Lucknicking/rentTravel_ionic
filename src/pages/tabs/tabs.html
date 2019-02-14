@@ -1,4 +1,4 @@
 <ion-tabs class="tabs-color-assertive">
-  <ion-tab *ngFor="let tabRoot of tabRoots" [root]="tabRoot.root" tabTitle="{{tabRoot.tabTitle}}"
+  <ion-tab *ngFor="let tabRoot of tabRoots" [rootParams]="user" [root]="tabRoot.root" tabTitle="{{tabRoot.tabTitle}}"
            tabIcon="{{tabRoot.tabIcon}}" tabBadge="{{tabRoot.tabBage}}"></ion-tab>
 </ion-tabs>

@@ -44,7 +44,7 @@ export class LoginPage {
           if (res.code === 0) {
             loading.dismiss();
             $this.showToast("bottom", "登录成功");
-            $this.navCtrl.push(TabsPage);
+            $this.navCtrl.push(TabsPage, { user: res.data });
           } else {
             $this.showToast("top", res.msg);
             loading.dismiss();

@@ -56,7 +56,7 @@ export class RegisterPage {
         }
       }, function (msg) {
         loading.dismiss();
-        $this.showToast("top", msg.message)
+        $this.showToast("top", msg.message);
       })
     }
   }
