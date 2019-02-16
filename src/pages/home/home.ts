@@ -7,7 +7,7 @@ import { GoodsDetailPage } from "../goods/goodsDetail"
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+  searchMes: any;
   constructor(public navCtrl: NavController) {
   }
 
@@ -28,11 +28,26 @@ export class HomePage {
   }
 
   getItems(ev: any) {
-    let searchText = ev.target.value;
-    console.log(searchText)
+    // let searchText = ev.target.value;
+    // console.log(searchText)
   }
 
   detailInfo() {
     this.navCtrl.push(GoodsDetailPage);
+  }
+
+  searchDetail(ev: any) {
+    /*this.http.post("api/register", data, function (res, msg) {
+      if (res.code === 0) {
+        loading.dismiss();
+        $this.showAlert("注册成功，请返回登录页面！");
+      } else {
+        $this.showToast("top", res.msg);
+        loading.dismiss();
+      }
+    }, function (msg) {
+      loading.dismiss();
+      $this.showToast("top", msg.message);
+    })*/
   }
 }

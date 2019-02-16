@@ -3,7 +3,9 @@
     <ion-title>首页</ion-title>
   </ion-navbar>
   <ion-toolbar color="primary" style="margin-bottom: -8px">
-    <ion-searchbar (input)="getItems($event)" class="searchInput"></ion-searchbar>
+    <form action="javascript:return true;" >
+      <ion-searchbar (input)="getItems($event)" (keyup)='searchDetail($event)' name='search' [(ngModel)]="searchMes" class="searchInput" (ionCancel)="getItems($event)"></ion-searchbar>
+    </form>
   </ion-toolbar>
 </ion-header>
 
@@ -205,6 +207,6 @@
     </div>
   </div>
   <div style="text-align: center">
-    this is end
+    &nbsp;
   </div>
 </ion-content>

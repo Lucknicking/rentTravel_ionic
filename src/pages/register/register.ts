@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { NavController, LoadingController, AlertController, ToastController, NavParams } from 'ionic-angular';
-import { HttpSerProvider } from "../../providers/http-ser/http-ser"
+import {Component} from '@angular/core';
+import {NavController, LoadingController, AlertController, ToastController, NavParams} from 'ionic-angular';
+import {HttpSerProvider} from "../../providers/http-ser/http-ser"
 
 /**
  * Generated class for the RegisterPage page.
@@ -15,12 +15,13 @@ import { HttpSerProvider } from "../../providers/http-ser/http-ser"
 })
 export class RegisterPage {
 
-  phone:any;
-  userName:any;
-  password:any;
-  confirmPassword:any;
-  email:any;
-  bolConfirm:boolean = false;
+  phone: any;
+  userName: any;
+  nickName: any;
+  password: any;
+  confirmPassword: any;
+  email: any;
+  bolConfirm: boolean = false;
 
   constructor(public navCtrl: NavController,
               private toastCtrl: ToastController,
@@ -33,18 +34,26 @@ export class RegisterPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
+
   gotoLogin() {
     this.navCtrl.pop()
   }
+
   doRegister() {
     let $this = this;
     let loading = this.loadingCtrl.create({
       content: '正在注册...'
     });
-    if(this.password != this.confirmPassword){
+    if (this.password != this.confirmPassword) {
       this.showToast("top", "两次输入的密码不匹配！")
     } else {
-      let data = {"userName": this.userName,"password":this.password,"phone": this.phone,"email": this.email};
+      let data = {
+        "nickName": this.nickName,
+        "userName": this.userName,
+        "password": this.password,
+        "phone": this.phone,
+        "email": this.email
+      };
       loading.present();
       this.http.post("api/register", data, function (res, msg) {
         if (res.code === 0) {
@@ -60,6 +69,7 @@ export class RegisterPage {
       })
     }
   }
+
   showToast(position: string, message: string) {
     let toast = this.toastCtrl.create({
       message: message,
@@ -68,6 +78,7 @@ export class RegisterPage {
     });
     toast.present(toast);
   }
+
   showAlert(message) {
     let alert = this.alertCtrl.create({
       title: "提示",
