@@ -32,9 +32,19 @@ export class HttpSerProvider {
   }
 
   // get数据
-  public get(url: string, params?: any): any {
-    // url = this.getUrl(url);
-    return this.http.get(url, params);
+  public get(url: string, params: any, successCallback, errorCallback): any {
+    url = this.getUrl(url);
+    return this.http.get(url, params).subscribe((res: any) => {
+      this.responseSuccess(res, function (msg) {
+        if (successCallback) {
+          successCallback(res, msg);
+        }
+      });
+    }, err => {
+      if (errorCallback) {
+        errorCallback(err);
+      }
+    });
   }
 
   // 删除相关请求

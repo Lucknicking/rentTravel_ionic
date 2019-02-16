@@ -18,16 +18,6 @@ export class ContactPage {
               private loadingCtrl: LoadingController,
               private toastCtrl: ToastController) {
     this.user = navParams.data;
-    this.newsList = [
-      {
-        nickName: 'Marty1 McFly1',
-        date: 'November 5, 1970',
-        content: 'hahahahahhahaha',
-        approvel: 23,
-        says: 55,
-        time: '11h ago'
-      }
-    ]
   }
   ionViewDidLoad() {
     // console.log(this.user);
@@ -38,6 +28,7 @@ export class ContactPage {
     });
     this.http.get("/api/news/list", {}, function (res, msg) {
       if (res.code === 0) {
+        $this.newsList = res.data;
         loading.dismiss();
       } else {
         $this.showToast("top", res.msg);
@@ -57,6 +48,7 @@ export class ContactPage {
     let $this = this;
     this.http.get("/api/news/list", {}, function (res, msg) {
       if (res.code === 0) {
+        $this.newsList = res.data;
         refresher.complete();
         $this.showToast("bottom", "加载成功")
       }
@@ -64,6 +56,11 @@ export class ContactPage {
       refresher.complete();
       $this.showToast("top", msg.message);
     });
+  }
+
+  // 点赞功能
+  approvel() {
+    console.log("aaa")
   }
 
   showToast(position: string, message: string) {

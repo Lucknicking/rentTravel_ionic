@@ -30,7 +30,7 @@
         <img src="../../assets/imgs/userPhoto.jpg">
       </ion-avatar>
       <h2>{{new.nickName}}</h2>
-      <p>{{new.date}}</p>
+      <p>{{new.date | date}}</p>
     </ion-item>
     <img src="../../assets/imgs/userPhoto.jpg">
     <ion-card-content>
@@ -38,120 +38,22 @@
     </ion-card-content>
     <ion-row>
       <ion-col>
-        <button ion-button color="primary" clear small icon-start>
+        <button ion-button color="primary" clear small icon-start (click)="approvel()">
           <ion-icon name='thumbs-up'></ion-icon>
-          {{new.approvel}} 赞
+          {{new.totalZan}} 赞
         </button>
       </ion-col>
       <ion-col>
         <button ion-button color="primary" clear small icon-start>
           <ion-icon name='text'></ion-icon>
-          {{new.says}} 评论
+          {{new.totalComment}} 评论
         </button>
       </ion-col>
       <ion-col align-self-center text-center>
         <ion-note>
-          {{new.time}}
-        </ion-note>
-      </ion-col>
-    </ion-row>
-  </ion-card>
-
-  <ion-card>
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="../../assets/imgs/userPhoto.jpg">
-      </ion-avatar>
-      <h2>Sarah Connor</h2>
-      <p>May 12, 1984</p>
-    </ion-item>
-    <img src="../../assets/imgs/userPhoto.jpg">
-    <ion-card-content>
-      <p>I face the unknown future, with a sense of hope. Because if a machine, a Terminator, can learn the value of human life, maybe we can too.</p>
-    </ion-card-content>
-    <ion-row>
-      <ion-col>
-        <button ion-button color="primary" clear small icon-start>
-          <ion-icon name='thumbs-up'></ion-icon>
-          30 Likes
-        </button>
-      </ion-col>
-      <ion-col>
-        <button ion-button color="primary" clear small icon-start>
-          <ion-icon name='text'></ion-icon>
-          64 Comments
-        </button>
-      </ion-col>
-      <ion-col align-self-center text-center>
-        <ion-note>
-          30yr ago
-        </ion-note>
-      </ion-col>
-    </ion-row>
-  </ion-card>
-
-  <ion-card>
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="../../assets/imgs/userPhoto.jpg">
-      </ion-avatar>
-      <h2>Dr. Ian Malcolm</h2>
-      <p>June 28, 1990</p>
-    </ion-item>
-    <ion-card-content>
-      <p>Your scientists were so preoccupied with whether or not they could, that they didn't stop to think if they should.</p>
-    </ion-card-content>
-    <ion-row>
-      <ion-col>
-        <button ion-button color="primary" clear small icon-start>
-          <ion-icon name='thumbs-up'></ion-icon>
-          46 Likes
-        </button>
-      </ion-col>
-      <ion-col>
-        <button ion-button color="primary" clear small icon-start>
-          <ion-icon name='text'></ion-icon>
-          66 Comments
-        </button>
-      </ion-col>
-      <ion-col align-self-center text-center>
-        <ion-note>
-          2d ago
-        </ion-note>
-      </ion-col>
-    </ion-row>
-  </ion-card>
-
-  <ion-card>
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="../../assets/imgs/userPhoto.jpg">
-      </ion-avatar>
-      <h2>Dr. Ian Malcolm</h2>
-      <p>June 28, 1990</p>
-    </ion-item>
-    <ion-card-content>
-      <p>Your scientists were so preoccupied with whether or not they could, that they didn't stop to think if they should.</p>
-    </ion-card-content>
-    <ion-row>
-      <ion-col>
-        <button ion-button color="primary" clear small icon-start>
-          <ion-icon name='thumbs-up'></ion-icon>
-          46 Likes
-        </button>
-      </ion-col>
-      <ion-col>
-        <button ion-button color="primary" clear small icon-start>
-          <ion-icon name='text'></ion-icon>
-          66 Comments
-        </button>
-      </ion-col>
-      <ion-col align-self-center text-center>
-        <ion-note>
-          2d ago
+          {{new.time}} ago
         </ion-note>
       </ion-col>
     </ion-row>
   </ion-card>
 </ion-content>
-
