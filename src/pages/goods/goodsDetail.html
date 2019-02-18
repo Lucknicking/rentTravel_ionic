@@ -1,11 +1,23 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar style="opacity: 0.8" color="primary">
     <ion-title>商品详情</ion-title>
   </ion-navbar>
 </ion-header>
-
-<ion-content padding>
-  <div>
-    this my test!!!!
+<ion-content fullscreen>
+  <ion-row>
+    <ion-col>
+      <img src="{{selectedItem.imgUrl}}" alt="">
+    </ion-col>
+  </ion-row>
+  <div class="item-good">
+    <div class="list-price buy">
+      <span class="price-new ml"><i>￥</i>{{selectedItem.productPrice}}/天</span>
+      <i class="del f14 ml2">￥{{selectedItem.productCheap}}/天</i>
+    </div>
+    <h1>{{selectedItem.title}}</h1>
+  </div>
+  <button ion-button full primary (click)="buyItem(selectedItem)">加入购物车</button>
+  <div *ngFor="let img of imgs">
+    <img src="{{img}}" alt="">
   </div>
 </ion-content>

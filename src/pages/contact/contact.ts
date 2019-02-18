@@ -10,7 +10,7 @@ import {HttpSerProvider} from "../../providers/http-ser/http-ser";
 export class ContactPage {
   user: Object;
   userName: string;
-  newsList: Object;
+  newsList: any;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private http: HttpSerProvider,
@@ -20,8 +20,6 @@ export class ContactPage {
     this.user = navParams.data;
   }
   ionViewDidLoad() {
-    // console.log(this.user);
-    // this.userName = this.user['userName'];
     let $this = this;
     let loading = this.loadingCtrl.create({
       content: '正在加载...'
@@ -59,8 +57,24 @@ export class ContactPage {
   }
 
   // 点赞功能
-  approvel() {
-    console.log("aaa")
+  approvel(currentNewId: any) {
+    let $this = this;
+    this.http.get("/api/news/approvel", {"userId": this.user['id'], "newsId": currentNewId}, function (res, msg) {
+      if (res.code === 0 && res.data) {
+        $this.newsList.forEach(it => {
+          if(it.id === currentNewId) {
+            it.totalZan = it.totalZan + 1;
+          }
+        })
+      } else if (res.code === 0) {
+        $this.newsList.forEach(it => {
+          if(it.id === currentNewId) {
+            it.totalZan = it.totalZan - 1;
+          }
+        })
+      }
+    }, function (msg) {
+    });
   }
 
   showToast(position: string, message: string) {

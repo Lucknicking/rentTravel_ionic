@@ -27,18 +27,18 @@
   <ion-card *ngFor="let new of newsList">
     <ion-item>
       <ion-avatar item-start>
-        <img src="../../assets/imgs/userPhoto.jpg">
+        <img src="http://localhost:8080/img/userPhoto.jpg">
       </ion-avatar>
       <h2>{{new.nickName}}</h2>
       <p>{{new.date | date}}</p>
     </ion-item>
-    <img src="../../assets/imgs/userPhoto.jpg">
+    <img src="{{new.imgUrl}}">
     <ion-card-content>
       <p>{{new.content}}</p>
     </ion-card-content>
     <ion-row>
       <ion-col>
-        <button ion-button color="primary" clear small icon-start (click)="approvel()">
+        <button ion-button color="primary" clear small icon-start (click)="approvel(new.id)">
           <ion-icon name='thumbs-up'></ion-icon>
           {{new.totalZan}} 赞
         </button>

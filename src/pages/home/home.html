@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>首页</ion-title>
-  </ion-navbar>
+  <!--<ion-navbar>-->
+    <!--<ion-title>首页</ion-title>-->
+  <!--</ion-navbar>-->
   <ion-toolbar color="primary" style="margin-bottom: -8px">
     <form action="javascript:return true;" >
       <ion-searchbar (input)="getItems($event)" (keyup)='searchDetail($event)' name='search' [(ngModel)]="searchMes" class="searchInput" (ionCancel)="getItems($event)"></ion-searchbar>
@@ -59,7 +59,7 @@
 
   <div class="home_content">
     <div class="row">
-      <div class="col col1 root_col">
+      <div class="col col1 root_col" (click)="productList()">
         <ion-row>
           <ion-col>
             <div class="home_icon_title">
@@ -72,7 +72,7 @@
           </ion-col>
         </ion-row>
       </div>
-      <div class="col col2 root_col">
+      <div class="col col2 root_col" (click)="productList()">
         <ion-row>
           <ion-col>
             <div class="home_icon_title">
@@ -87,7 +87,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col col3 root_col">
+      <div class="col col3 root_col" (click)="productList()">
         <ion-row>
           <ion-col>
             <div class="home_icon_title">
@@ -100,7 +100,7 @@
           </ion-col>
         </ion-row>
       </div>
-      <div class="col col4 root_col">
+      <div class="col col4 root_col" (click)="productList()">
         <ion-row>
           <ion-col>
             <div class="home_icon_title">
