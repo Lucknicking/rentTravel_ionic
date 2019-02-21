@@ -3,8 +3,8 @@
     <!--<ion-title>首页</ion-title>-->
   <!--</ion-navbar>-->
   <ion-toolbar color="primary" style="margin-bottom: -8px">
-    <form action="javascript:return true;" >
-      <ion-searchbar (input)="getItems($event)" (keyup)='searchDetail($event)' name='search' [(ngModel)]="searchMes" class="searchInput" (ionCancel)="getItems($event)"></ion-searchbar>
+    <form>
+      <ion-searchbar (input)="getItems($event)" type="search" (keyup)='searchDetail($event)' name='search' [(ngModel)]="searchMes" class="searchInput" (ionCancel)="getItems($event)"></ion-searchbar>
     </form>
   </ion-toolbar>
 </ion-header>

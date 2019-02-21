@@ -1,24 +1,22 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-
-/**
- * Generated class for the TravelNewsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {NavController, NavParams} from 'ionic-angular';
 
 @Component({
   selector: 'page-travel-news',
   templateUrl: 'travel-news.html',
 })
 export class TravelNewsPage {
+  item: any;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navParams: NavParams,
+              public navCtrl: NavController) {
+    this.item = navParams.data.item
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TravelNewsPage');
+    console.log(this.item)
   }
-
+  sendComment(){
+    console.log("send!")
+  }
 }

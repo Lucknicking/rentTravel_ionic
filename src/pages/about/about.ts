@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams  } from 'ionic-angular';
+import {SettingPage} from "../setting/setting";
 
 @Component({
   templateUrl: 'navigation-details.html',
@@ -48,5 +49,8 @@ export class AboutPage {
   }
   openNavDetailsPage(item) {
     this.navCtrl.push(NavigationDetailsPage, { item: item });
+  }
+  setting() {
+    this.navCtrl.push(SettingPage)
   }
 }

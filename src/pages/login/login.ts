@@ -1,16 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, ToastController, ModalController } from 'ionic-angular';
 import { TabsPage } from "../tabs/tabs";
 import { HttpSerProvider } from "../../providers/http-ser/http-ser"
 import { RegisterPage } from "../register/register"
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
-@IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
@@ -21,11 +14,11 @@ export class LoginPage {
               public navCtrl: NavController,
               public toastCtrl: ToastController,
               public navParams: NavParams,
+              public modalCtrl: ModalController,
               private loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
   }
 
   logIn(username: HTMLInputElement, password: HTMLInputElement) {
@@ -44,7 +37,7 @@ export class LoginPage {
           if (res.code === 0) {
             loading.dismiss();
             $this.showToast("bottom", "登录成功");
-            $this.navCtrl.push(TabsPage, { user: res.data });
+            $this.modalCtrl.create(TabsPage, { user: res.data }).present();
           } else {
             $this.showToast("top", res.msg);
             loading.dismiss();
@@ -66,7 +59,7 @@ export class LoginPage {
     loading.present();
     setTimeout(() => {
       loading.dismiss();
-      this.navCtrl.push(TabsPage);
+      this.modalCtrl.create(TabsPage).present();
     }, 10);
   }
 

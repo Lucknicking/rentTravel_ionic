@@ -1,6 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
-import {NavController, Slides} from 'ionic-angular';
-import { GoodsDetailPage } from "../goods/goodsDetail"
+import {NavController, Slides, ToastController} from 'ionic-angular';
+import {GoodsDetailPage} from "../goods/goodsDetail"
 import {ProductListPage} from "../product-list/product-list"
 
 @Component({
@@ -10,7 +10,9 @@ import {ProductListPage} from "../product-list/product-list"
 export class HomePage {
   searchMes: any;
   item: any;
-  constructor(public navCtrl: NavController) {
+
+  constructor(public navCtrl: NavController,
+              public toastCtrl: ToastController) {
     this.item = {
       title: "帐篷1",
       productPrice: "200.00",
@@ -24,7 +26,6 @@ export class HomePage {
 
   //页面进入时启动自动播放
   ionViewDidEnter() {
-    console.log(this.navCtrl)
     this.slides.autoplayDisableOnInteraction = false;
     this.slides.startAutoplay();
   }
@@ -43,11 +44,14 @@ export class HomePage {
   detailInfo() {
     this.navCtrl.push(GoodsDetailPage, {item: this.item});
   }
+
   productList() {
     this.navCtrl.push(ProductListPage);
   }
 
   searchDetail(ev: any) {
+    this.showToast("bottom", "点击搜索")
+    console.log(11)
     /*this.http.post("api/register", data, function (res, msg) {
       if (res.code === 0) {
         loading.dismiss();
@@ -60,5 +64,14 @@ export class HomePage {
       loading.dismiss();
       $this.showToast("top", msg.message);
     })*/
+  }
+
+  showToast(position: string, message: string) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 2000,
+      position: position
+    });
+    toast.present(toast);
   }
 }

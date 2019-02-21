@@ -19,6 +19,7 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {HttpSerProvider} from '../providers/http-ser/http-ser';
 import {ProductListPage} from "../pages/product-list/product-list";
+import {SettingPage} from "../pages/setting/setting";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {ProductListPage} from "../pages/product-list/product-list";
     RegisterPage,
     TravelNewsPage,
     UserSendMesPage,
-    ProductListPage
+    ProductListPage,
+    SettingPage
   ],
   imports: [
     BrowserModule,
@@ -58,7 +60,8 @@ import {ProductListPage} from "../pages/product-list/product-list";
     GoodsDetailPage,
     TravelNewsPage,
     UserSendMesPage,
-    ProductListPage
+    ProductListPage,
+    SettingPage
   ],
   providers: [
     StatusBar,

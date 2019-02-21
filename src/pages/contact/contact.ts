@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {AlertController, LoadingController, NavController, NavParams, ToastController} from 'ionic-angular';
 import { UserSendMesPage } from "../user-send-mes/user-send-mes";
 import {HttpSerProvider} from "../../providers/http-ser/http-ser";
+import {TravelNewsPage} from "../travel-news/travel-news";
 
 @Component({
   selector: 'page-contact',
@@ -11,6 +12,7 @@ export class ContactPage {
   user: Object;
   userName: string;
   newsList: any;
+  showStatus: boolean;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private http: HttpSerProvider,
@@ -75,6 +77,17 @@ export class ContactPage {
       }
     }, function (msg) {
     });
+  }
+
+  commentNew(news: any){
+    // let item = {};
+    // this.newsList.forEach(it=> {
+    //   if(it.id === newsId) {
+    //     item = it;
+    //   }
+    // });
+    this.navCtrl.push(TravelNewsPage, {item: news});
+    console.log(news)
   }
 
   showToast(position: string, message: string) {

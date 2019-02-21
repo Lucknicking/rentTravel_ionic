@@ -1,3 +1,19 @@
 page-travel-news {
-
+  .toolbar-title{
+    width: 80% !important;
+  }
+  ion-note {
+    font-size: 12px;
+    align-self: flex-start;
+    margin-top: 14px;
+  }
+  .list-header-md{
+    border-bottom: 1px solid #dedede;
+  }
+  .delete{
+    font-size: 12px;
+    position: absolute;
+    right: 7px;
+    color: #0099FF;
+  }
 }

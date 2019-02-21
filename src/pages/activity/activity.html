@@ -1,57 +1,39 @@
-<!--
-  Generated template for the ActivityPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-  <ion-navbar>
+<ion-header no-border>
+  <ion-toolbar color="primary">
     <ion-title>购物车</ion-title>
-  </ion-navbar>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content style="background-color: #F2F2F2">
-  <div>
-    <div class="slide-box_self">
-      <div class="slide-item_self">
-        <div style="position: relative">
-          <i class="iconfont icon-shanchu1" style="font-size: 2.2rem;color:white;position: absolute;right: 0px;"></i>
-          <img src="../../assets/imgs/tent1.jpg">
-        </div>
-        <div class="car_text">
-          <span style="display: block">&nbsp;&nbsp;野营学生帐篷</span>
-          <div style="margin-top: 5px">
-            <span>&nbsp;&nbsp;颜色：红色</span>
-            <span>&nbsp;&nbsp;&nbsp;&nbsp;尺寸：大号</span>
+
+<ion-content class="cart_content">
+  <!--购物车界面-->
+  <div *ngFor="let item of shopcart, let i = index" style="background-color: white">
+
+    <ion-row *ngFor="let products_item of item.shops.products, let products_index = index"
+             style="border-bottom: 0.55px solid gray">
+      <ion-col col-3 style="display:flex;align-items: center">
+        <img src="../../assets/imgs/nanz5.jpg" alt=""/>
+      </ion-col>
+      <ion-col col-9>
+        <h2>{{products_item.name}}</h2>
+        <p style="color: gray">双十一价格9.9包邮,近期期待</p>
+        <div>
+          <label>￥{{products_item.price}}</label>
+          <div style="display: inline-flex;margin-left: 20px">
+            <ion-icon name="add" (click)="addNum(i,products_index);"></ion-icon>
+            <label style="margin-left: 5px; color: #FF857B; margin-right: 5px">{{products_item.num}}</label>
+            <ion-icon name="remove" (click)="reduceNum(i,products_index);"></ion-icon>
+            <ion-icon name="trash" style="margin-left:20px;" (click)="deleteProduct(i,products_index);"></ion-icon>
           </div>
-          <span style="color: #FF857B;margin-top: 5px;display: block">&nbsp;&nbsp;￥120.0</span>
         </div>
-      </div>
-      <div class="slide-item_self">
-        <img src="../../assets/imgs/tent1.jpg">
-      </div>
-      <div class="slide-item_self">
-        <img src="../../assets/imgs/tent1.jpg">
-      </div>
-      <div class="slide-item_self">
-        <img src="../../assets/imgs/tent1.jpg">
-      </div>
-      <div class="slide-item_self">
-        <img src="../../assets/imgs/tent1.jpg">
+      </ion-col>
+    </ion-row>
+    <div style="display: flex; align-items:center;border-bottom: 0.55px solid gray">
+      <div style="float: right;margin: 10px">
+        <label style="margin-right: 10px"> 总价:￥{{item.shops.allPrise}}</label>
       </div>
     </div>
   </div>
-  <h5>&nbsp;&nbsp;支付方式 ></h5>
-  <div class="pay_div">
-    <ul>
-      <li>
-        <i class="iconfont icon-zhifubao" style="color: #0099FF;font-size: 2.2rem"></i>
-        支付宝支付
-      </li>
-      <li>
-        <i class="iconfont icon-weixinzhifu" style="color: #08c406;font-size: 2.2rem"></i>
-        微信支付
-      </li>
-    </ul>
-  </div>
+  <button ion-button block (click)="buyThisGoods()">租下它</button>
+
 </ion-content>
