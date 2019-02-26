@@ -59,7 +59,8 @@ export class LoginPage {
     loading.present();
     setTimeout(() => {
       loading.dismiss();
-      this.modalCtrl.create(TabsPage).present();
+      // this.navCtrl.setRoot(TabsPage);
+      this.navCtrl.push(TabsPage)
     }, 10);
   }
 

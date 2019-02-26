@@ -12,7 +12,6 @@ export class ContactPage {
   user: Object;
   userName: string;
   newsList: any;
-  showStatus: boolean;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private http: HttpSerProvider,
@@ -79,14 +78,18 @@ export class ContactPage {
     });
   }
 
+  deleteNew(newId: number) {
+    let $this = this;
+    this.http.get("/api/news/delete", {"id": newId}, function (res, msg) {
+      if (res.code === 0) {
+        $this.newsList = res.data;
+      }
+    }, function (msg) {
+    });
+  }
+
   commentNew(news: any){
-    // let item = {};
-    // this.newsList.forEach(it=> {
-    //   if(it.id === newsId) {
-    //     item = it;
-    //   }
-    // });
-    this.navCtrl.push(TravelNewsPage, {item: news});
+    this.navCtrl.push(TravelNewsPage, {item: news, currentUserId: this.user['id']});
     console.log(news)
   }
 
@@ -98,19 +101,25 @@ export class ContactPage {
     });
     toast.present(toast);
   }
-  showAlert(message) {
-    let alert = this.alertCtrl.create({
-      title: "提示",
-      message: message,
+  showConfirm(newId: number) {
+    let confirm = this.alertCtrl.create({
+      title: '温馨提示',
+      message: '是否要删除该动态?',
       buttons: [
         {
-          text: '确认',
+          text: '再看看',
           handler: () => {
-            // this.navCtrl.pop()
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: '是的',
+          handler: () => {
+            this.deleteNew(newId);
           }
         }
       ]
     });
-    alert.present();
+    confirm.present();
   }
 }

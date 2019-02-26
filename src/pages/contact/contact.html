@@ -31,9 +31,11 @@
       </ion-avatar>
       <h2>{{new.nickName}}</h2>
       <p>{{new.date | date}}</p>
+      <ion-icon *ngIf="user['id']===new.userId" style="font-size: 2rem" name="trash" color="primary"
+                item-end (click)="showConfirm(new.id)"></ion-icon>
     </ion-item>
     <img src="{{new.imgUrl}}">
-    <ion-card-content>
+    <ion-card-content (click)="commentNew(new)">
       <p>{{new.content}}</p>
     </ion-card-content>
     <ion-row>
@@ -51,7 +53,7 @@
       </ion-col>
       <ion-col align-self-center text-center>
         <ion-note>
-          {{new.time}} ago
+          {{new.time}}
         </ion-note>
       </ion-col>
     </ion-row>
