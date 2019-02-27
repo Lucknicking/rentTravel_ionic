@@ -1,22 +1,4 @@
 page-home {
-  .searchbar-input{
-    padding: 6px 10px !important;
-    border-radius: 8px !important;
-    height: 40px !important;
-    color: white !important;
-    background-color: rgba(255,255,255,0.1) !important;
-    box-shadow: 0 0 0 0 !important;
-    -webkit-box-shadow: 0 0 0 0 !important;
-  }
-  .searchbar-input::-webkit-input-placeholder {
-    color: rgba(255,255,255,0.5) !important;
-  }
-  .searchbar-input-container{
-    //width: 80% !important;
-  }
-  .searchbar-search-icon{
-    display: none;
-  }
   .homeslides{
     height: 37%;
   }

@@ -66,7 +66,7 @@ export class TravelNewsPage {
    */
   deleteComment(commentId: number) {
     let $this = this;
-    this.http.get("/api/news/comment/delete", {"id": commentId, "newsId": this.item.id}, function (res, msg) {
+    this.http.post("/api/news/comment/delete", {id: commentId, newsId: this.item.id, userId: this.currentUserId}, function (res, msg) {
       if (res.code === 0) {
         $this.commentsList = res.data;
         $this.item.totalComment = $this.item.totalComment - 1

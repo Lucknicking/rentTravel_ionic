@@ -60,7 +60,7 @@ export class ContactPage {
   // 点赞功能
   approvel(currentNewId: any) {
     let $this = this;
-    this.http.get("/api/news/approvel", {"userId": this.user['id'], "newsId": currentNewId}, function (res, msg) {
+    this.http.get("/api/news/approvel", {userId: this.user['id'], newsId: currentNewId}, function (res, msg) {
       if (res.code === 0 && res.data) {
         $this.newsList.forEach(it => {
           if(it.id === currentNewId) {
@@ -80,7 +80,7 @@ export class ContactPage {
 
   deleteNew(newId: number) {
     let $this = this;
-    this.http.get("/api/news/delete", {"id": newId}, function (res, msg) {
+    this.http.post("/api/news/delete", {"id": newId, userId: this.user['id']}, function (res, msg) {
       if (res.code === 0) {
         $this.newsList = res.data;
       }
