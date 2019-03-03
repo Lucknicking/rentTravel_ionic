@@ -20,6 +20,7 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {HttpSerProvider} from '../providers/http-ser/http-ser';
 import {ProductListPage} from "../pages/product-list/product-list";
 import {SettingPage} from "../pages/setting/setting";
+import {OrderPage} from "../pages/order/order";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {SettingPage} from "../pages/setting/setting";
     TravelNewsPage,
     UserSendMesPage,
     ProductListPage,
-    SettingPage
+    SettingPage,
+    OrderPage
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,8 @@ import {SettingPage} from "../pages/setting/setting";
     TravelNewsPage,
     UserSendMesPage,
     ProductListPage,
-    SettingPage
+    SettingPage,
+    OrderPage
   ],
   providers: [
     StatusBar,

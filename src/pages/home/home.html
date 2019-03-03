@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="primary" style="margin-bottom: -8px">
     <form>
-      <ion-searchbar (input)="getItems($event)" type="search" (keyup)='searchDetail($event)' name='search' [(ngModel)]="searchMes" class="searchInput" (ionCancel)="getItems($event)"></ion-searchbar>
+      <ion-searchbar type="search" (keyup)='searchDetail($event)' name='search' [(ngModel)]="searchMes" class="searchInput" (ionCancel)="getItems($event)"></ion-searchbar>
     </form>
   </ion-toolbar>
 </ion-header>
@@ -116,90 +116,22 @@
     <h5>限时优惠</h5>
     <span>冰点直降</span>
     <div class="slide-box_self">
-      <div class="slide-item_self" (click)="detailInfo()">
+
+      <div class="slide-item_self" (click)="detailInfo(item)" *ngFor="let item of especialList">
         <div>
-          <img src="../../assets/imgs/tent1.jpg">
+          <img src="{{item.imgUrl}}">
         </div>
         <div class="car_text">
-          <span style="display: block">野营学生帐篷</span>
+          <span style="display: block">{{item.title}}</span>
           <div>
-            <span>帐篷招租 限时降价</span>
+            <span>{{item.content}}</span>
           </div>
           <div style="position: absolute;float: left">
-            <strong style="color: #CC3333">￥100.0</strong>
-            <span style="color: #575757;text-decoration: line-through;margin-left: 10px;">￥120.0</span>
+            <strong style="color: #CC3333">￥{{item.realPrice}}</strong>
+            <span style="color: #575757;text-decoration: line-through;margin-left: 10px;">￥{{item.price}}</span>
           </div>
         </div>
       </div>
-
-
-      <div class="slide-item_self">
-        <div>
-          <img src="../../assets/imgs/tent1.jpg">
-        </div>
-        <div class="car_text">
-          <span style="display: block">野营学生帐篷</span>
-          <div>
-            <span>帐篷招租 限时降价</span>
-          </div>
-          <div style="position: absolute;float: left">
-            <strong style="color: #CC3333">￥100.0</strong>
-            <span style="color: #575757;text-decoration: line-through;margin-left: 10px;">￥120.0</span>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="slide-item_self">
-        <div>
-          <img src="../../assets/imgs/tent1.jpg">
-        </div>
-        <div class="car_text">
-          <span style="display: block">野营学生帐篷</span>
-          <div>
-            <span>帐篷招租 限时降价</span>
-          </div>
-          <div style="position: absolute;float: left">
-            <strong style="color: #CC3333">￥100.0</strong>
-            <span style="color: #575757;text-decoration: line-through;margin-left: 10px;">￥120.0</span>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="slide-item_self">
-        <div>
-          <img src="../../assets/imgs/tent1.jpg">
-        </div>
-        <div class="car_text">
-          <span style="display: block">野营学生帐篷</span>
-          <div>
-            <span>帐篷招租 限时降价</span>
-          </div>
-          <div style="position: absolute;float: left">
-            <strong style="color: #CC3333">￥100.0</strong>
-            <span style="color: #575757;text-decoration: line-through;margin-left: 10px;">￥120.0</span>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="slide-item_self">
-        <div>
-          <img src="../../assets/imgs/tent1.jpg">
-        </div>
-        <div class="car_text">
-          <span style="display: block">野营学生帐篷</span>
-          <div>
-            <span>帐篷招租 限时降价</span>
-          </div>
-          <div style="position: absolute;float: left">
-            <strong style="color: #CC3333">￥100.0</strong>
-            <span style="color: #575757;text-decoration: line-through;margin-left: 10px;">￥120.0</span>
-          </div>
-        </div>
-      </div>
-
 
     </div>
   </div>

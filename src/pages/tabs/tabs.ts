@@ -28,8 +28,8 @@ export class TabsPage {
       },
       {
         root: ActivityPage,
-        tabTitle: '购物车',
-        tabBage: '5',
+        tabTitle: '租租车',
+        tabBage: '',
         tabIcon: 'cart'
       },
       {
@@ -37,7 +37,6 @@ export class TabsPage {
         tabTitle: '我的',
         tabIcon: 'person',
         tabBage: ''
-
       }
     ];
   }

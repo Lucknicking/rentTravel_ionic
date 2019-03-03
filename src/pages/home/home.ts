@@ -1,7 +1,8 @@
 import {Component, ViewChild} from '@angular/core';
-import {NavController, Slides, ToastController} from 'ionic-angular';
+import {AlertController, NavController, NavParams, Slides, ToastController} from 'ionic-angular';
 import {GoodsDetailPage} from "../goods/goodsDetail"
 import {ProductListPage} from "../product-list/product-list"
+import {HttpSerProvider} from "../../providers/http-ser/http-ser";
 
 @Component({
   selector: 'page-home',
@@ -10,16 +11,14 @@ import {ProductListPage} from "../product-list/product-list"
 export class HomePage {
   searchMes: any;
   item: any;
-
+  user: any;
+  especialList: any;
   constructor(public navCtrl: NavController,
+              private http: HttpSerProvider,
+              public navParams: NavParams,
+              private alertCtrl: AlertController,
               public toastCtrl: ToastController) {
-    this.item = {
-      title: "帐篷1",
-      productPrice: "200.00",
-      imgUrl: "../../assets/imgs/tent1.jpg",
-      productCheap: "150.00",
-      imgUrls: ["../../assets/imgs/tent1.jpg", "../../assets/imgs/tent1.jpg", "../../assets/imgs/tent1.jpg"]
-    }
+    this.user = navParams.data
   }
 
   @ViewChild('slides') slides: Slides;
@@ -28,6 +27,13 @@ export class HomePage {
   ionViewDidEnter() {
     this.slides.autoplayDisableOnInteraction = false;
     this.slides.startAutoplay();
+    let $this = this;
+    this.http.get("api/especial/goods_list", {}, function (res, msg) {
+      if (res.code === 0) {
+        $this.especialList = res.data;
+      }
+    }, function (msg) {
+    })
   }
 
 
@@ -36,13 +42,14 @@ export class HomePage {
     this.slides.stopAutoplay();
   }
 
-  getItems(ev: any) {
-    // let searchText = ev.target.value;
-    // console.log(searchText)
-  }
-
-  detailInfo() {
-    this.navCtrl.push(GoodsDetailPage, {item: this.item});
+  detailInfo(item: any) {
+    var reg = /^["|'](.*)["|']$/g;
+    if (item.detailImg === "" || item.detailImg === null) {
+      item.detailImg = []
+    } else {
+      item.detailImg = item.detailImg.replace(reg,"$1").split(',');
+    }
+    this.navCtrl.push(GoodsDetailPage, {item: item,userId: this.user['id']});
   }
 
   productList() {
@@ -50,20 +57,9 @@ export class HomePage {
   }
 
   searchDetail(ev: any) {
-    this.showToast("bottom", "点击搜索")
-    console.log(11)
-    /*this.http.post("api/register", data, function (res, msg) {
-      if (res.code === 0) {
-        loading.dismiss();
-        $this.showAlert("注册成功，请返回登录页面！");
-      } else {
-        $this.showToast("top", res.msg);
-        loading.dismiss();
-      }
-    }, function (msg) {
-      loading.dismiss();
-      $this.showToast("top", msg.message);
-    })*/
+    if("Enter"==ev.key) {
+      this.showToast("bottom", "点击搜索");
+    }
   }
 
   showToast(position: string, message: string) {
@@ -73,5 +69,21 @@ export class HomePage {
       position: position
     });
     toast.present(toast);
+  }
+
+  showAlert(message) {
+    let alert = this.alertCtrl.create({
+      title: "提示",
+      message: message,
+      buttons: [
+        {
+          text: '确认',
+          handler: () => {
+            // this.navCtrl.pop()
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 }

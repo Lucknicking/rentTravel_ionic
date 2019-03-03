@@ -18,8 +18,11 @@ export class NavigationDetailsPage {
   templateUrl: 'about.html'
 })
 export class AboutPage {
+  user: any;
   items = [];
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams) {
+    this.user = navParams.data;
     this.items = [
       {
         'title': '推荐有奖',

@@ -59,14 +59,15 @@ page-home {
     width: 200px;
     height: 200px;
     border:1px solid #ccc;
-    border-radius: 6px;
+    border-radius: 4px;
     text-align: left;
     //overflow: hidden;
     margin-right: 30px;
   }
   .slide-item_self img{
     width: 200px;
-    border-radius: 6px;
+    boder-top-left-radius: 6px;
+    boder-top-right-radius: 6px;
     height: 130px;
   }
   .slide-item_self .car_text{

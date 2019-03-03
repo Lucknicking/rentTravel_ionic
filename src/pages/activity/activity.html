@@ -1,39 +1,40 @@
 <ion-header no-border>
   <ion-toolbar color="primary">
-    <ion-title>购物车</ion-title>
+    <ion-title>租租车</ion-title>
   </ion-toolbar>
 </ion-header>
 
 
 <ion-content class="cart_content">
-  <!--购物车界面-->
-  <div *ngFor="let item of shopcart, let i = index" style="background-color: white">
-
-    <ion-row *ngFor="let products_item of item.shops.products, let products_index = index"
+  <!--租租车界面-->
+  <div style="background-color: white">
+    <ion-row *ngFor="let products_item of carList, let i = index"
              style="border-bottom: 0.55px solid gray">
       <ion-col col-3 style="display:flex;align-items: center">
-        <img src="../../assets/imgs/nanz5.jpg" alt=""/>
+        <img src="{{products_item.imgUrl}}" alt=""/>
       </ion-col>
       <ion-col col-9>
-        <h2>{{products_item.name}}</h2>
-        <p style="color: gray">双十一价格9.9包邮,近期期待</p>
+        <h2>{{products_item.title}}</h2>
+        <p style="color: gray">{{products_item.content}}</p>
         <div>
-          <label>￥{{products_item.price}}</label>
-          <div style="display: inline-flex;margin-left: 20px">
-            <ion-icon name="add" (click)="addNum(i,products_index);"></ion-icon>
+          <label>￥{{products_item.realPrice}}</label>
+          <div style="display: inline-flex; margin-left: 20px">
+            <ion-icon name="add" (click)="addNum(products_item)"></ion-icon>
             <label style="margin-left: 5px; color: #FF857B; margin-right: 5px">{{products_item.num}}</label>
-            <ion-icon name="remove" (click)="reduceNum(i,products_index);"></ion-icon>
-            <ion-icon name="trash" style="margin-left:20px;" (click)="deleteProduct(i,products_index);"></ion-icon>
+            <ion-icon name="remove" (click)="reduceNum(products_item, i)"></ion-icon>
+            <ion-icon name="trash" style="margin-left:20px" (click)="showConfirm(products_item, i)"></ion-icon>
           </div>
         </div>
       </ion-col>
     </ion-row>
     <div style="display: flex; align-items:center;border-bottom: 0.55px solid gray">
       <div style="float: right;margin: 10px">
-        <label style="margin-right: 10px"> 总价:￥{{item.shops.allPrise}}</label>
+        <label style="margin-right: 10px"> 总价:￥{{totalPrice}}</label>
       </div>
     </div>
   </div>
   <button ion-button block (click)="buyThisGoods()">租下它</button>
 
+
 </ion-content>
+
