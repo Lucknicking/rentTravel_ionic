@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams  } from 'ionic-angular';
 import {SettingPage} from "../setting/setting";
+import {OrderPage} from "../order/order";
 
 @Component({
   templateUrl: 'navigation-details.html',
@@ -54,6 +55,10 @@ export class AboutPage {
     this.navCtrl.push(NavigationDetailsPage, { item: item });
   }
   setting() {
-    this.navCtrl.push(SettingPage)
+    this.navCtrl.push(SettingPage, {user: this.user})
+  }
+
+  finishOrder() {
+    this.navCtrl.push(OrderPage, {userId: this.user['id']});
   }
 }

@@ -9,13 +9,12 @@
 
 <ion-content class="bg-color">
   <ion-list class="top-list">
-    <!--<button ion-item [navPush]="userInfoPage">-->
-    <button ion-item>
+    <button ion-item (click)="editUserInfo()">
       <ion-avatar item-left>
         <img src="../../assets/imgs/userPhoto.jpg">
       </ion-avatar>
-      <h2>devilx</h2>
-      <p>账号：18600001111</p>
+      <h2>{{user.nickName}}</h2>
+      <p>账号：{{user.userName}}</p>
     </button>
   </ion-list>
 

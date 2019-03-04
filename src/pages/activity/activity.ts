@@ -25,7 +25,6 @@ export class ActivityPage {
     this.http.get("/api/goods/car/list", {userId: this.userId}, function (res, msg) {
       if (res.code === 0) {
         $this.carList = res.data;
-        $this.numAllPrice();
       }
     }, function (msg) {
       $this.showAlert("亲，加载失败")
@@ -129,6 +128,9 @@ export class ActivityPage {
     confirm.present();
   }
 
+  /**
+   * 购买商品
+   */
   buyThisGoods() {
     let $this = this;
     let data = [];
@@ -144,6 +146,7 @@ export class ActivityPage {
     this.http.post("api/buy/goods", data, function (res, msg) {
       if (res.code === 0) {
         $this.showToast("bottom", "下单成功");
+        $this.carList = []
       } else {
         $this.showToast("top", res.msg);
       }

@@ -1,12 +1,37 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>OrderPage</ion-title>
+    <ion-title>已完成订单</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content class="cart_content">
-
+  <div *ngIf="finishList && finishList.length > 0; else other_content">
+    <ion-card padding *ngFor="let item of finishList">
+      <div>
+        <ion-icon name="ios-pricetags-outline" style="position: absolute"></ion-icon>
+        <h3 style="width: 50%; margin-left: 8%;">管理员 ></h3>
+      </div>
+      <hr/>
+      <hr/>
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="{{item.imgUrl}}">
+        </ion-thumbnail>
+        <h2>{{item.title}}</h2>
+        <p>共{{item.count}}件物品 合计：￥{{item.price}}</p>
+      </ion-item>
+      <hr/>
+      <p class="says">立即评价</p>
+    </ion-card>
+  </div>
+  <ng-template #other_content>
+    <div class="ng_else">
+      <ion-icon name="ios-recording-outline" style="font-size: 50px"></ion-icon>
+      <br/>
+      还没有租过商品哦~
+    </div>
+  </ng-template>
 </ion-content>

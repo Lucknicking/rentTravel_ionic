@@ -7,34 +7,42 @@
 
 <ion-content class="cart_content">
   <!--租租车界面-->
-  <div style="background-color: white">
-    <ion-row *ngFor="let products_item of carList, let i = index"
-             style="border-bottom: 0.55px solid gray">
-      <ion-col col-3 style="display:flex;align-items: center">
-        <img src="{{products_item.imgUrl}}" alt=""/>
-      </ion-col>
-      <ion-col col-9>
-        <h2>{{products_item.title}}</h2>
-        <p style="color: gray">{{products_item.content}}</p>
-        <div>
-          <label>￥{{products_item.realPrice}}</label>
-          <div style="display: inline-flex; margin-left: 20px">
-            <ion-icon name="add" (click)="addNum(products_item)"></ion-icon>
-            <label style="margin-left: 5px; color: #FF857B; margin-right: 5px">{{products_item.num}}</label>
-            <ion-icon name="remove" (click)="reduceNum(products_item, i)"></ion-icon>
-            <ion-icon name="trash" style="margin-left:20px" (click)="showConfirm(products_item, i)"></ion-icon>
+  <div *ngIf="carList && carList.length > 0; else other_content">
+    <div style="background-color: white">
+      <ion-row *ngFor="let products_item of carList, let i = index"
+               style="border-bottom: 0.55px solid gray">
+        <ion-col col-3 style="display:flex;align-items: center">
+          <img src="{{products_item.imgUrl}}" alt=""/>
+        </ion-col>
+        <ion-col col-9>
+          <h2>{{products_item.title}}</h2>
+          <p style="color: gray">{{products_item.content}}</p>
+          <div>
+            <label style="color: #CC3333">￥{{products_item.realPrice}}</label>
+            <div style="display: inline-flex; margin-left: 20px">
+              <ion-icon name="add" (click)="addNum(products_item)"></ion-icon>
+              <label style="margin-left: 5px; color: #FF857B; margin-right: 5px">{{products_item.num}}</label>
+              <ion-icon name="remove" (click)="reduceNum(products_item, i)"></ion-icon>
+              <ion-icon name="trash" style="margin-left:20px" (click)="showConfirm(products_item, i)"></ion-icon>
+            </div>
           </div>
+        </ion-col>
+      </ion-row>
+      <div style="display: flex; align-items:center;border-bottom: 0.55px solid gray">
+        <div style="float: right;margin: 10px">
+          <label style="margin-right: 10px; color: #CC3333"> 总价:￥{{totalPrice}}</label>
         </div>
-      </ion-col>
-    </ion-row>
-    <div style="display: flex; align-items:center;border-bottom: 0.55px solid gray">
-      <div style="float: right;margin: 10px">
-        <label style="margin-right: 10px"> 总价:￥{{totalPrice}}</label>
       </div>
     </div>
+    <button ion-button block (click)="buyThisGoods()">租下它</button>
   </div>
-  <button ion-button block (click)="buyThisGoods()">租下它</button>
 
-
+  <ng-template #other_content>
+    <div class="ng_else">
+      <ion-icon name="ios-cart-outline" style="font-size: 50px"></ion-icon>
+      <br/>
+      亲，您还没选择商品哦~
+    </div>
+  </ng-template>
 </ion-content>
 

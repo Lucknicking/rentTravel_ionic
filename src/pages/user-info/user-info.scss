@@ -1,0 +1,26 @@
+page-user-info {
+  .bg-color{
+    background-color: #ececec;
+  }
+  .userDiv{
+    width: 100%;
+    text-align: center;
+    background-color: #FFF;
+    padding: 10px;
+  }
+  .userDiv img{
+    border-radius: 50px;
+    width: 20%;
+  }
+  .userDiv span{
+    display: block;
+    padding: 4px;
+    border-radius: 50px;
+    width: 23%;
+    margin-left: 38%;
+    background-color: #efefef;
+  }
+  .userInput{
+    border: 0px;
+  }
+}

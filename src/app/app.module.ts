@@ -21,6 +21,7 @@ import {HttpSerProvider} from '../providers/http-ser/http-ser';
 import {ProductListPage} from "../pages/product-list/product-list";
 import {SettingPage} from "../pages/setting/setting";
 import {OrderPage} from "../pages/order/order";
+import {UserInfoPage} from "../pages/user-info/user-info";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {OrderPage} from "../pages/order/order";
     UserSendMesPage,
     ProductListPage,
     SettingPage,
-    OrderPage
+    OrderPage,
+    UserInfoPage
   ],
   imports: [
     BrowserModule,
@@ -67,7 +69,8 @@ import {OrderPage} from "../pages/order/order";
     UserSendMesPage,
     ProductListPage,
     SettingPage,
-    OrderPage
+    OrderPage,
+    UserInfoPage
   ],
   providers: [
     StatusBar,

@@ -1,18 +1,29 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
+import {HttpSerProvider} from "../../providers/http-ser/http-ser";
 
-@IonicPage()
 @Component({
   selector: 'page-order',
   templateUrl: 'order.html',
 })
 export class OrderPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  finishList: any;
+  userId: number;
+  constructor(public navCtrl: NavController,
+              private http: HttpSerProvider,
+              public navParams: NavParams) {
+    this.userId = navParams.data.userId;
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad OrderPage');
+  ionViewDidEnter() {
+    let $this = this;
+    this.http.get("/api/order/finish/list", {userId: this.userId}, function (res, msg) {
+      if (res.code === 0) {
+        $this.finishList = res.data;
+      }
+    }, function (msg) {
+    });
   }
 
 }

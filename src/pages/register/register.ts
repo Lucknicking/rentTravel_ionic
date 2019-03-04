@@ -2,13 +2,6 @@ import {Component} from '@angular/core';
 import {NavController, LoadingController, AlertController, ToastController, NavParams} from 'ionic-angular';
 import {HttpSerProvider} from "../../providers/http-ser/http-ser"
 
-/**
- * Generated class for the RegisterPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @Component({
   selector: 'page-register',
   templateUrl: 'register.html',
