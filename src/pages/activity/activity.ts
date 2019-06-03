@@ -25,6 +25,7 @@ export class ActivityPage {
     this.http.get("/api/goods/car/list", {userId: this.userId}, function (res, msg) {
       if (res.code === 0) {
         $this.carList = res.data;
+        $this.numAllPrice();
       }
     }, function (msg) {
       $this.showAlert("亲，加载失败")

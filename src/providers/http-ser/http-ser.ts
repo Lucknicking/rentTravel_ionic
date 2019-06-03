@@ -1,19 +1,17 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {NoticeService} from "../camera-ser/NoticeService";
 
-/*
-  Generated class for the HttpSerProvider provider.
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class HttpSerProvider {
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,
+              public notice: NoticeService) {
     console.log('Hello HttpSerProvider Provider');
   }
 
   // apiUrl = 'http://139.199.62.61';
+  // apiUrl = 'http://192.168.1.6:8080';
   apiUrl = 'http://localhost:8080';
 
   public post(url: string, params: any = null, successCallback, errorCallback): any {

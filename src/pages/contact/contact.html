@@ -27,7 +27,7 @@
   <ion-card *ngFor="let new of newsList">
     <ion-item>
       <ion-avatar item-start>
-        <img src="http://localhost:8080/img/userPhoto.jpg">
+        <img src="{{http.apiUrl}}/img/userPhoto.jpg">
       </ion-avatar>
       <h2>{{new.nickName}}</h2>
       <p>{{new.date | date}}</p>

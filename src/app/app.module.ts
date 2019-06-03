@@ -17,11 +17,15 @@ import {UserSendMesPage} from "../pages/user-send-mes/user-send-mes";
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
+import { Camera } from '@ionic-native/camera';
 import {HttpSerProvider} from '../providers/http-ser/http-ser';
 import {ProductListPage} from "../pages/product-list/product-list";
 import {SettingPage} from "../pages/setting/setting";
 import {OrderPage} from "../pages/order/order";
 import {UserInfoPage} from "../pages/user-info/user-info";
+import {NoticeService} from "../providers/camera-ser/NoticeService";
+import {ImagePicker} from "@ionic-native/image-picker";
+import {FileTransfer} from "@ionic-native/file-transfer";
 
 @NgModule({
   declarations: [
@@ -75,6 +79,10 @@ import {UserInfoPage} from "../pages/user-info/user-info";
   providers: [
     StatusBar,
     SplashScreen,
+    FileTransfer,
+    NoticeService,
+    Camera,
+    ImagePicker,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpSerProvider
   ]

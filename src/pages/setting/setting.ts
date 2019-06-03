@@ -22,7 +22,6 @@ export class SettingPage {
   }
 
   logOut() {
-    console.log(11);
     this.app.getRootNav().push(LoginPage);
   }
   editUserInfo() {

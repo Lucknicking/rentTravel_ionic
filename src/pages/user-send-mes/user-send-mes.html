@@ -19,11 +19,14 @@
       <ion-textarea type="text" [(ngModel)]="mesContent" autosize></ion-textarea>
     </ion-item>
   </ion-list>
-  <!--<h5>上传图片</h5>
+  <h5>上传图片</h5>
 
   <div style="width: 50px;height: 50px;background-color: #DBDBDB"(click)="useASComponent()">
     <ion-icon style="font-size: 30px;color:#828282;margin-left: 15px;margin-top: 10px" name="add"></ion-icon>
-  </div>-->
+  </div>
+  <div>
+    <img src="{{path}}"/>
+  </div>
   <div padding>
     <button ion-button color="primary" block (click)="mesSubmit()">发布</button>
   </div>

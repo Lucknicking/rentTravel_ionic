@@ -80,7 +80,7 @@ export class ContactPage {
 
   deleteNew(newId: number) {
     let $this = this;
-    this.http.post("/api/news/delete", {"id": newId, userId: this.user['id']}, function (res, msg) {
+    this.http.post("/api/news/delete", {id: newId, userId: this.user['id']}, function (res, msg) {
       if (res.code === 0) {
         $this.newsList = res.data;
       }
